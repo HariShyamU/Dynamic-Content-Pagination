@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="js/jquery.bootpag.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="content">
+
+    </div>
+</div>
+
+<script>
+
+var sampleJson = [
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 1",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 2",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 3",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 4",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 5",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 1",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 2",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 3",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 4",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 5",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 1",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 2",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 3",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 4",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 5",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 1",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 2",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 3",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 4",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 5",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 1",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 2",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 3",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 4",
+        },
+        {
+        "id": "file",
+        "value": "File",
+        "title": "sample 5",
+        },
+    ]
+
+$(document).ready(function() {
+    let totalPages = sampleJson.length;
+
+    let divcontainer=[];
+    let divcontent=[];
+
+    for (let i=0; i<sampleJson.length; i++) {
+        divcontainer[i] = $("<div>", {id: "divcontainer" + i, "class": "divcontainer"});
+        divcontent[i] = $("<p>", {id: "divcontent" + i, "class": "divcontent"});
+        divcontent[i].html("Title " + sampleJson[i].title)
+    }
+
+
+
+    $('.container').bootpag({
+    total: sampleJson.length,
+    page: 1,
+    leaps: true,
+    firstLastUse: true,
+    first: 'First',
+    last: 'Last',
+    wrapClass: 'pagination',
+    activeClass: 'active',
+    disabledClass: 'disabled',
+    nextClass: 'next',
+    prevClass: 'prev',
+    lastClass: 'last',
+    firstClass: 'first',
+    maxVisible: 10
+    }).on('page', function(event, num){
+        var j=num-1;
+        $( ".content" ).empty();
+        $(".content").append(divcontainer[num-1]);
+        $("#divcontainer"+ j).append(divcontent[j]);
+
+        // $("#divcontent"+num).html("Title " + sampleJson[num-1].title); // or some ajax content loading...
+    });
+
+});
+
+
+    
+</script>
+</body>
+</html>
